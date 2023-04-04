@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>电子时钟</title>
+	<script type="text/javascript">
+		function displayTime() {
+			var currentTime = new Date();
+			var hours = currentTime.getHours();
+			var minutes = currentTime.getMinutes();
+			var seconds = currentTime.getSeconds();
+			if (hours < 10) {
+				hours = "0" + hours; // Add leading zero for single digit hours
+			}
+			if (minutes < 10) {
+				minutes = "0" + minutes;
+			}
+			if (seconds < 10) {
+				seconds = "0" + seconds;
+			}
+			var clockTime = hours + ":" + minutes + ":" + seconds;
+			document.getElementById('clock').innerHTML = clockTime;
+		}
+		function runClock() {
+			setInterval(displayTime, 1000);
+		}
+	</script>
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		h1 {
+			color: #333;
+			font-size: 36px;
+			margin-top: 50px;
+		}
+		#clock {
+			color: #333;
+			font-size: 72px;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body onload="runClock()">
+	<h1>电子时钟</h1>
+	<div id="clock"></div>
+</body>
+</html>
